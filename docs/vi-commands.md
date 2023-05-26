@@ -1,5 +1,5 @@
 # Basic Vi Commands
-
+vi is a screen-oriented text editor originally created for the Unix operating system. The portable subset of the behavior of vi and programs based on it, and the ex editor language supported within these programs, is described by the Single Unix Specification and POSIX.
 ## Modes & Controls
 
 | Command | Description |

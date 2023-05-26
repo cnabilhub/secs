@@ -4,5 +4,7 @@ nav:
     - Home: index.md
     - Linux commands: basic-linux-commands.md
     - VI commands: vi-commands.md
+    - Emacs commands: emacs-editor.md
+    - Git: git.md
     - About: about.md
 theme: readthedocs

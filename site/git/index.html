@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Git - SECS</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Git";
+        var mkdocs_page_input_path = "git.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <script src="../js/jquery-3.6.0.min.js" defer></script>
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> SECS
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../basic-linux-commands/">Linux commands</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../vi-commands/">VI commands</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../emacs-editor/">Emacs commands</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="./">Git</a>
+    <ul class="current">
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../about/">About</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">SECS</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a> &raquo;</li>
+      <li>Git</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="git">GIT</h1>
+<p>Git is a distributed version control system that tracks changes in any set of computer files, usually used for coordinating work among programmers collaboratively developing source code during software development. Its goals include speed, data integrity, and support for distributed, non-linear workflows</p>
+<h1 id="how-to-check-your-git-configuration"><strong>How to check your Git configuration:</strong></h1>
+<p>The command below returns a list of information about your git configuration including user name and email:</p>
+<pre><code class="language-bash">git config -l
+</code></pre>
+<h1 id="how-to-setup-your-git-username"><strong>How to setup your Git username:</strong></h1>
+<p>With the command below you can configure your user name:</p>
+<pre><code class="language-bash">git config --global user.name &quot;Fabio&quot;
+</code></pre>
+<h1 id="how-to-setup-your-git-user-email"><strong>How to setup your Git user email:</strong></h1>
+<p>This command lets you setup the user email address you'll use in your commits.</p>
+<pre><code class="language-bash">git config --global user.email &quot;signups@fabiopacifici.com&quot;
+
+</code></pre>
+<h1 id="how-to-cache-your-login-credentials-in-git"><strong>How to cache your login credentials in Git:</strong></h1>
+<p>You can store login credentials in the cache so you don't have to type them in each time. Just use this command:</p>
+<pre><code class="language-bash">git config --global credential.helper cache
+
+</code></pre>
+<h1 id="how-to-initialize-a-git-repo"><strong>How to initialize a Git repo:</strong></h1>
+<p>Everything starts from here. The first step is to initialize a new Git repo locally in your project root. You can do so with the command below:</p>
+<pre><code>git init
+
+</code></pre>
+<h1 id="how-to-add-a-file-to-the-staging-area-in-git"><strong>How to add a file to the staging area in Git:</strong></h1>
+<p>The command below will add a file to the staging area. Just replace <code>filename_here</code> with the name of the file you want to add to the staging area.</p>
+<pre><code>git add filename_here
+
+</code></pre>
+<h1 id="how-to-add-all-files-in-the-staging-area-in-git"><strong>How to add all files in the staging area in Git</strong></h1>
+<p>If you want to add all files in your project to the staging area, you can use a wildcard <code>.</code> and every file will be added for you.</p>
+<pre><code>git add .
+
+</code></pre>
+<h1 id="how-to-add-only-certain-files-to-the-staging-area-in-git"><strong>How to add only certain files to the staging area in Git</strong></h1>
+<p>With the asterisk in the command below, you can add all files starting with 'fil' in the staging area.</p>
+<pre><code>git add fil*
+
+</code></pre>
+<h1 id="how-to-check-a-repositorys-status-in-git"><strong>How to check a repository's status in Git:</strong></h1>
+<p>This command will show the status of the current repository including staged, unstaged, and untracked files.</p>
+<pre><code>git status
+
+</code></pre>
+<h1 id="how-to-commit-changes-in-the-editor-in-git"><strong>How to commit changes in the editor in Git:</strong></h1>
+<p>This command will open a text editor in the terminal where you can write a full commit message.</p>
+<p>A commit message is made up of a short summary of changes, an empty line, and a full description of the changes after it.</p>
+<pre><code>git commit
+
+</code></pre>
+<h1 id="how-to-commit-changes-with-a-message-in-git"><strong>How to commit changes with a message in Git:</strong></h1>
+<p>You can add a commit message without opening the editor. This command lets you only specify a short summary for your commit message.</p>
+<pre><code>git commit -m &quot;your commit message here&quot;
+
+</code></pre>
+<h1 id="how-to-commit-changes-and-skip-the-staging-area-in-git"><strong>How to commit changes (and skip the staging area) in Git:</strong></h1>
+<p>You can add and commit tracked files with a single command by using the -a and -m options.</p>
+<pre><code>git commit -a -m&quot;your commit message here&quot;
+
+</code></pre>
+<h1 id="how-to-see-your-commit-history-in-git"><strong>How to see your commit history in Git:</strong></h1>
+<p>This command shows the commit history for the current repository:</p>
+<pre><code>git log
+
+</code></pre>
+<h1 id="how-to-see-your-commit-history-including-changes-in-git"><strong>How to see your commit history including changes in Git:</strong></h1>
+<p>This command shows the commit's history including all files and their changes:</p>
+<pre><code>git log -p
+
+</code></pre>
+<h1 id="how-to-see-a-specific-commit-in-git"><strong>How to see a specific commit in Git:</strong></h1>
+<p>This command shows a specific commit.</p>
+<p>Replace commit-id with the id of the commit that you find in the commit log after the word commit.</p>
+<pre><code>git show commit-id
+
+</code></pre>
+<h1 id="how-to-see-log-stats-in-git"><strong>How to see log stats in Git:</strong></h1>
+<p>This command will cause the Git log to show some statistics about the changes in each commit, including line(s) changed and file names.</p>
+<pre><code>git log --stat
+
+</code></pre>
+<h1 id="how-to-see-changes-made-before-committing-them-using-diff-in-git"><strong>How to see changes made before committing them using "diff" in Git:</strong></h1>
+<p>You can pass a file as a parameter to only see changes on a specific file.<code>git diff</code> shows only unstaged changes by default.</p>
+<p>We can call diff with the <code>--staged</code> flag to see any staged changes.</p>
+<pre><code>git diff
+git diff all_checks.py
+git diff --staged
+
+</code></pre>
+<h1 id="how-to-see-changes-using-git-add-p"><strong>How to see changes using "git add -p":</strong></h1>
+<p>This command opens a prompt and asks if you want to stage changes or not, and includes other options.</p>
+<pre><code>git add -p
+
+</code></pre>
+<h1 id="how-to-remove-tracked-files-from-the-current-working-tree-in-git"><strong>How to remove tracked files from the current working tree in Git:</strong></h1>
+<p>This command expects a commit message to explain why the file was deleted.</p>
+<pre><code>git rm filename
+
+</code></pre>
+<h1 id="how-to-rename-files-in-git"><strong>How to rename files in Git:</strong></h1>
+<p>This command stages the changes, then it expects a commit message.</p>
+<pre><code>git mv oldfile newfile
+
+</code></pre>
+<h1 id="how-to-ignore-files-in-git"><strong>How to ignore files in Git:</strong></h1>
+<p>Create a <code>.gitignore</code> file and commit it.</p>
+<h1 id="how-to-revert-unstaged-changes-in-git"><strong>How to revert unstaged changes in Git:</strong></h1>
+<pre><code>git checkout filename
+
+</code></pre>
+<h1 id="how-to-revert-staged-changes-in-git"><strong>How to revert staged changes in Git:</strong></h1>
+<p>You can use the -p option flag to specify the changes you want to reset.</p>
+<pre><code>git reset HEAD filename
+git reset HEAD -p
+
+</code></pre>
+<h1 id="how-to-amend-the-most-recent-commit-in-git"><strong>How to amend the most recent commit in Git:</strong></h1>
+<p><code>git commit --amend</code> allows you to modify and add changes to the most recent commit.</p>
+<pre><code>git commit --amend
+
+</code></pre>
+<p>!!Note!!: fixing up a local commit with amend is great and you can push it to a shared repository after you've fixed it. But you should avoid amending commits that have already been made public.</p>
+<h1 id="how-to-rollback-the-last-commit-in-git"><strong>How to rollback the last commit in Git:</strong></h1>
+<p><code>git revert</code> will create a new commit that is the opposite of everything in the given commit.We can revert the latest commit by using the head alias like this:</p>
+<pre><code>git revert HEAD
+
+</code></pre>
+<h1 id="how-to-rollback-an-old-commit-in-git"><strong>How to rollback an old commit in Git:</strong></h1>
+<p>You can revert an old commit using its commit id. This opens the editor so you can add a commit message.</p>
+<pre><code>git revert comit_id_here
+
+</code></pre>
+<h1 id="how-to-create-a-new-branch-in-git"><strong>How to create a new branch in Git:</strong></h1>
+<p>By default, you have one branch, the main branch. With this command, you can create a new branch. Git won't switch to it automatically – you will need to do it manually with the next command.</p>
+<pre><code>git branch branch_name
+
+</code></pre>
+<h1 id="how-to-switch-to-a-newly-created-branch-in-git"><strong>How to switch to a newly created branch in Git:</strong></h1>
+<p>When you want to use a different or a newly created branch you can use this command:</p>
+<pre><code>git checkout branch_name
+
+</code></pre>
+<h1 id="how-to-list-branches-in-git"><strong>How to list branches in Git:</strong></h1>
+<p>You can view all created branches using the <code>git branch</code> command. It will show a list of all branches and mark the current branch with an asterisk and highlight it in green.</p>
+<pre><code>git branch
+
+</code></pre>
+<h1 id="how-to-create-a-branch-in-git-and-switch-to-it-immediately"><strong>How to create a branch in Git and switch to it immediately:</strong></h1>
+<p>In a single command, you can create and switch to a new branch right away.</p>
+<pre><code>git checkout -b branch_name
+
+</code></pre>
+<h1 id="how-to-delete-a-branch-in-git"><strong>How to delete a branch in Git:</strong></h1>
+<p>When you are done working with a branch and have merged it, you can delete it using the command below:</p>
+<pre><code>git branch -d branch_name
+
+</code></pre>
+<h1 id="how-to-merge-two-branches-in-git"><strong>How to merge two branches in Git:</strong></h1>
+<p>To merge the history of the branch you are currently in with the <code>branch_name</code>, you will need to use the command below:</p>
+<pre><code>git merge branch_name
+
+</code></pre>
+<h1 id="how-to-show-the-commit-log-as-a-graph-in-git"><strong>How to show the commit log as a graph in Git:</strong></h1>
+<p>We can use <code>--graph</code> to get the commit log to show as a graph. Also,<code>--oneline</code> will limit commit messages to a single line.</p>
+<pre><code>git log --graph --oneline
+
+</code></pre>
+<h1 id="how-to-show-the-commit-log-as-a-graph-of-all-branches-in-git"><strong>How to show the commit log as a graph of all branches in Git:</strong></h1>
+<p>Does the same as the command above, but for all branches.</p>
+<pre><code>git log --graph --online --all
+</code></pre>
+<h1 id="how-to-abort-a-conflicting-merge-in-git"><strong>How to abort a conflicting merge in Git:</strong></h1>
+<p>If you want to throw a merge away and start over, you can run the following command:</p>
+<pre><code>git merge --abort
+</code></pre>
+<h1 id="how-to-add-a-remote-repository-in-git"><strong>How to add a remote repository in Git</strong></h1>
+<p>This command adds a remote repository to your local repository (just replace <code>https://repo_here</code> with your remote repo URL).</p>
+<pre><code>git add remote https://repo_here
+
+</code></pre>
+<h1 id="how-to-see-remote-urls-in-git"><strong>How to see remote URLs in Git:</strong></h1>
+<p>You can see all remote repositories for your local repository with this command:</p>
+<pre><code>git remote -v
+
+</code></pre>
+<h1 id="how-to-get-more-info-about-a-remote-repo-in-git"><strong>How to get more info about a remote repo in Git:</strong></h1>
+<p>Just replace <code>origin</code> with the name of the remote obtained byrunning the git remote -v command.</p>
+<pre><code>git remote show origin
+
+</code></pre>
+<h1 id="how-to-push-changes-to-a-remote-repo-in-git"><strong>How to push changes to a remote repo in Git:</strong></h1>
+<p>When all your work is ready to be saved on a remote repository, you can push all changes using the command below:</p>
+<pre><code>git push
+
+</code></pre>
+<h1 id="how-to-pull-changes-from-a-remote-repo-in-git"><strong>How to pull changes from a remote repo in Git:</strong></h1>
+<p>If other team members are working on your repository, you can retrieve the latest changes made to the remote repository with the command below:</p>
+<pre><code>git pull
+
+</code></pre>
+<h1 id="how-to-check-remote-branches-that-git-is-tracking"><strong>How to check remote branches that Git is tracking:</strong></h1>
+<p>This command shows the name of all remote branches that Git is tracking for the current repository:</p>
+<pre><code>git branch -r
+
+</code></pre>
+<h1 id="how-to-fetch-remote-repo-changes-in-git"><strong>How to fetch remote repo changes in Git:</strong></h1>
+<p>This command will download the changes from a remote repo but will not perform a merge on your local branch (as git pull does that instead).</p>
+<pre><code>git fetch
+
+</code></pre>
+<h1 id="how-to-check-the-current-commits-log-of-a-remote-repo-in-git"><strong>How to check the current commits log of a remote repo in Git</strong></h1>
+<p>Commit after commit, Git builds up a log. You can find out the remote repository log by using this command:</p>
+<pre><code>git log origin/main
+
+</code></pre>
+<h1 id="how-to-merge-a-remote-repo-with-your-local-repo-in-git"><strong>How to merge a remote repo with your local repo in Git:</strong></h1>
+<p>If the remote repository has changes you want to merge with your local, then this command will do that for you:</p>
+<pre><code>git merge origin/main
+
+</code></pre>
+<h1 id="how-to-get-the-contents-of-remote-branches-in-git-without-automatically-merging"><strong>How to get the contents of remote branches in Git without automatically merging:</strong></h1>
+<p>This lets you update the remote without merging any content into thelocal branches. You can call git merge or git checkout to do the merge.</p>
+<pre><code>git remote update
+
+</code></pre>
+<h1 id="how-to-push-a-new-branch-to-a-remote-repo-in-git"><strong>How to push a new branch to a remote repo in Git:</strong></h1>
+<p>If you want to push a branch to a remote repository you can use the command below. Just remember to add -u to create the branch upstream:</p>
+<pre><code>git push -u origin branch_name
+
+</code></pre>
+<h1 id="how-to-remove-a-remote-branch-in-git"><strong>How to remove a remote branch in Git:</strong></h1>
+<p>If you no longer need a remote branch you can remove it using the command below:</p>
+<pre><code>git push --delete origin branch_name_here
+
+</code></pre>
+<h1 id="how-to-use-git-rebase"><strong>How to use Git rebase:</strong></h1>
+<p>You can transfer completed work from one branch to another using <code>git rebase</code>.</p>
+<pre><code>git rebase branch_name_here
+
+</code></pre>
+<p>Git Rebase can get really messy if you don't do it properly. Before using this command I suggest that you re-read the official documentation <a href="https://git-scm.com/book/it/v2/Git-Branching-Rebasing">here</a></p>
+<h1 id="how-to-run-rebase-interactively-in-git"><strong>How to run rebase interactively in Git:</strong></h1>
+<p>You can run git rebase interactively using the -i flag.It will open the editor and present a set of commands you can use.</p>
+<pre><code>git rebase -i master
+# p, pick = use commit
+# r, reword = use commit, but edit the commit message
+# e, edit = use commit, but stop for amending
+# s, squash = use commit, but meld into previous commit
+# f, fixup = like &quot;squash&quot;, but discard this commit's log message
+# x, exec = run command (the rest of the line) using shell
+# d, drop = remove commit
+
+</code></pre>
+<h1 id="how-to-force-a-push-request-in-git"><strong>How to force a push request in Git:</strong></h1>
+<p>This command will force a push request. This is usually fine for pull request branches because nobody else should have cloned them.But this isn't something that you want to do with public repos.</p>
+<pre><code>git push -f
+
+</code></pre>
+<h1 id="conclusion"><strong>Conclusion</strong></h1>
+<p>These commands can dramatically improve your productivity in Git. You don't have to remember them all – that's why I have written this cheat sheet. Bookmark this page for future reference or print it if you like.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../emacs-editor/" class="btn btn-neutral float-left" title="Emacs commands"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../about/" class="btn btn-neutral float-right" title="About">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../emacs-editor/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../about/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme_extra.js" defer></script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

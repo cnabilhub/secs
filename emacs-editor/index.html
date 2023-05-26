@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Emacs commands - SECS</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Emacs commands";
+        var mkdocs_page_input_path = "emacs-editor.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <script src="../js/jquery-3.6.0.min.js" defer></script>
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> SECS
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../basic-linux-commands/">Linux commands</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../vi-commands/">VI commands</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="./">Emacs commands</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#shortcut-keys-used">Shortcut Keys Used</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#basics">Basics</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#movement">Movement</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#bufferfile">Buffer/File</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#lines">Lines</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#words">Words</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#characters">Characters</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#searching">Searching</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#kill-ring-copycutpaste">Kill Ring (Copy/Cut/Paste)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#editing">Editing</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#formatting-tricks">Formatting Tricks</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#help">Help</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#windows-and-frame">Windows and Frame</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#plugin-cider">Plugin: Cider</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#clojure-files">Clojure Files</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#repl">REPL</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#plugin-paredit">Plugin: Paredit</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../git/">Git</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../about/">About</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">SECS</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a> &raquo;</li>
+      <li>Emacs commands</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="emacs-editor">Emacs Editor</h1>
+<p>Emacs, originally named EMACS, is a family of text editors that are characterized by their extensibility. The manual for the most widely used variant, GNU Emacs, describes it as "the extensible, customizable, self-documenting, real-time display editor"</p>
+<h2 id="shortcut-keys-used">Shortcut Keys Used</h2>
+<ul>
+<li>C = Control Key</li>
+<li>M = Meta Key (Alt on PCs, Option on Macs)</li>
+</ul>
+<p>Examples:</p>
+<ul>
+<li>C-a = Hold control, press 'a'.</li>
+<li>C-x o = Hold control, press 'x', release both, press 'o' (oh, not zero).</li>
+</ul>
+<h2 id="basics">Basics</h2>
+<table>
+<thead>
+<tr>
+<th>Keys</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>C-x C-c</td>
+<td>Quit Emacs.</td>
+</tr>
+<tr>
+<td>C-g</td>
+<td>Cancel any in progress keybinding/shortcut command.</td>
+</tr>
+<tr>
+<td>C-x C-s</td>
+<td>Save current buffer.</td>
+</tr>
+<tr>
+<td>C-x b</td>
+<td>Switch to a different buffer.</td>
+</tr>
+<tr>
+<td>C-x k</td>
+<td>Kill/close current buffer.</td>
+</tr>
+<tr>
+<td>C-x C-f</td>
+<td>Open a file.</td>
+</tr>
+<tr>
+<td>C-/</td>
+<td>Undo the last action.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="movement">Movement</h2>
+<p>In addition to the arrow keys, these keybindings allow for cursor movements.</p>
+<h3 id="bufferfile">Buffer/File</h3>
+<table>
+<thead>
+<tr>
+<th>Keys</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>M-&lt;</td>
+<td>Move to beginning of buffer/file.</td>
+</tr>
+<tr>
+<td>M-&gt;</td>
+<td>Move to end of buffer/file.</td>
+</tr>
+<tr>
+<td>C-v</td>
+<td>Move one screen forward.</td>
+</tr>
+<tr>
+<td>M-v</td>
+<td>Move one screen backward.</td>
+</tr>
+<tr>
+<td>C-l</td>
+<td>Center screen on position at cursor.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="lines">Lines</h3>
+<table>
+<thead>
+<tr>
+<th>Keys</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>C-a</td>
+<td>Move to beginning of line.</td>
+</tr>
+<tr>
+<td>C-e</td>
+<td>Move to end of line.</td>
+</tr>
+<tr>
+<td>C-n</td>
+<td>Move to the next line.</td>
+</tr>
+<tr>
+<td>C-p</td>
+<td>Move to the previous line.</td>
+</tr>
+<tr>
+<td>M-g g</td>
+<td>Go to line.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="words">Words</h3>
+<table>
+<thead>
+<tr>
+<th>Keys</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>M-f</td>
+<td>Move forward one word.</td>
+</tr>
+<tr>
+<td>M-b</td>
+<td>Move backward one word.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="characters">Characters</h3>
+<table>
+<thead>
+<tr>
+<th>Keys</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>C-f</td>
+<td>Move forward one character.</td>
+</tr>
+<tr>
+<td>C-b</td>
+<td>Move backward one character.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="searching">Searching</h2>
+<table>
+<thead>
+<tr>
+<th>Keys</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>C-s</td>
+<td>Regex search for text in current buffer and move to it. Press C-s again to move to next match.</td>
+</tr>
+<tr>
+<td>C-r</td>
+<td>Same as C-s, but search in reverse.</td>
+</tr>
+<tr>
+<td>M-%</td>
+<td>Search and replace.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="kill-ring-copycutpaste">Kill Ring (Copy/Cut/Paste)</h2>
+<table>
+<thead>
+<tr>
+<th>Keys</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>C-spacebar</td>
+<td>Create a region (select). Use movement keys to expand the region selected. Then use copy/cut commands below.</td>
+</tr>
+<tr>
+<td>M-w</td>
+<td>Copy region to kill ring (copy).</td>
+</tr>
+<tr>
+<td>C-w</td>
+<td>Kill region (cut).</td>
+</tr>
+<tr>
+<td>C-y</td>
+<td>Yank (paste).</td>
+</tr>
+<tr>
+<td>M-y</td>
+<td>Cycle through kill ring after yanking/pasting. This is like a copy/paste clipboard.</td>
+</tr>
+<tr>
+<td>M-d</td>
+<td>Kill/delete word starting at cursor (cut).</td>
+</tr>
+<tr>
+<td>C-k</td>
+<td>Kill/delete line starting at cursor (cut).</td>
+</tr>
+</tbody>
+</table>
+<h2 id="editing">Editing</h2>
+<table>
+<thead>
+<tr>
+<th>Keys</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Tab</td>
+<td>Indent line.</td>
+</tr>
+<tr>
+<td>C-j</td>
+<td>New line and indent, equivalent to enter followed by tab.</td>
+</tr>
+<tr>
+<td>M-\</td>
+<td>Delete all spaces and tabs around point.</td>
+</tr>
+<tr>
+<td>C-d</td>
+<td>Delete the next character.</td>
+</tr>
+<tr>
+<td>M-backspace</td>
+<td>Delete previous word.</td>
+</tr>
+<tr>
+<td>C-x space (use movement keys to select up/down).C-x r t (type key to insert, then Enter)</td>
+<td>Rectangle mode</td>
+</tr>
+</tbody>
+</table>
+<h2 id="formatting-tricks">Formatting Tricks</h2>
+<table>
+<thead>
+<tr>
+<th>Keys</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>C-t</td>
+<td>Swap two characters at the point/cursor.</td>
+</tr>
+<tr>
+<td>M-u</td>
+<td>Change the word at the point/cursor to uppercase.</td>
+</tr>
+<tr>
+<td>M-l</td>
+<td>Change the word at the point/cursor to lowercase.</td>
+</tr>
+<tr>
+<td>C-u n char</td>
+<td>Insert 'n' (a number) copies of 'char' (a character).</td>
+</tr>
+</tbody>
+</table>
+<h2 id="help">Help</h2>
+<table>
+<thead>
+<tr>
+<th>Keys</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>C-h k key-binding</td>
+<td>Describe the function bound to the key binding. To get this to work, you actually perform the key sequence after typing C-h k.</td>
+</tr>
+<tr>
+<td>C-h f</td>
+<td>Describe function.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="windows-and-frame">Windows and Frame</h2>
+<table>
+<thead>
+<tr>
+<th>Keys</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>C-x o</td>
+<td>Switch cursor to another window.</td>
+</tr>
+<tr>
+<td>C-x 1</td>
+<td>Delete all other windows, leaving only the current window in the frame. This doesn’t close your buffers, and it won’t cause you to lose any work.</td>
+</tr>
+<tr>
+<td>C-x 2</td>
+<td>Split frame above and below.</td>
+</tr>
+<tr>
+<td>C-x 3</td>
+<td>Split frame side by side.</td>
+</tr>
+<tr>
+<td>C-x 0</td>
+<td>Delete current window.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="plugin-cider">Plugin: Cider</h2>
+<h3 id="clojure-files">Clojure Files</h3>
+<table>
+<thead>
+<tr>
+<th>Keys</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>C-c M-n M-n</td>
+<td>Switch to namespace of current buffer.</td>
+</tr>
+<tr>
+<td>C-x C-e</td>
+<td>Evaluate expression immediately preceding point.</td>
+</tr>
+<tr>
+<td>C-c C-k</td>
+<td>Compile current buffer/file.</td>
+</tr>
+<tr>
+<td>C-c C-d C-d</td>
+<td>Display documentation for symbol under point.</td>
+</tr>
+<tr>
+<td>M-. and M-,</td>
+<td>Navigate to source code for symbol under point and return to your original buffer.</td>
+</tr>
+<tr>
+<td>C-c C-d C-a</td>
+<td>Apropros search; find arbitrary text across function names and documentation.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="repl">REPL</h3>
+<table>
+<thead>
+<tr>
+<th>Keys</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>M-x cider-jack-in</td>
+<td>Start a REPL.</td>
+</tr>
+<tr>
+<td>C-c C-x C-j C-j</td>
+<td>Alternative to start a REPL.</td>
+</tr>
+<tr>
+<td>C-↑, C-↓</td>
+<td>Cycle through REPL history.</td>
+</tr>
+<tr>
+<td>C-enter</td>
+<td>Close parentheses and evaluate.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="plugin-paredit">Plugin: Paredit</h2>
+<table>
+<thead>
+<tr>
+<th>Keys</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>M-x paredit-mode</td>
+<td>Toggle paredit mode.</td>
+</tr>
+<tr>
+<td>M-(</td>
+<td>Surround expression after point in parentheses (paredit-wrap-round).</td>
+</tr>
+<tr>
+<td>C-→</td>
+<td>Slurp; move closing parenthesis to the right to include next expression.</td>
+</tr>
+<tr>
+<td>C-←</td>
+<td>Barf; move closing parenthesis to the left to exclude last expression.</td>
+</tr>
+<tr>
+<td>C-M-f, C-M-b</td>
+<td>Move to the opening/closing parenthesis.</td>
+</tr>
+</tbody>
+</table>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../vi-commands/" class="btn btn-neutral float-left" title="VI commands"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../git/" class="btn btn-neutral float-right" title="Git">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../vi-commands/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../git/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme_extra.js" defer></script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
