@@ -1,0 +1,8 @@
+site_name: SECS
+site_url: #
+nav:
+    - Home: index.md
+    - Linux commands: basic-linux-commands.md
+    - VI commands: vi-commands.md
+    - About: about.md
+theme: readthedocs
