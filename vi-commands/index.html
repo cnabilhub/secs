@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>VI commands - SECS</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "VI commands";
+        var mkdocs_page_input_path = "vi-commands.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <script src="../js/jquery-3.6.0.min.js" defer></script>
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> SECS
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../basic-linux-commands/">Linux commands</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="./">VI commands</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#modes-controls">Modes &amp; Controls</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#cursor-navigation">Cursor Navigation</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#inserting-text">Inserting Text</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#marking-text-visual-mode">Marking Text (Visual Mode)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#visual-commands">Visual commands</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#cut-and-paste">Cut and Paste</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#deleting-text">Deleting Text</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#searching">Searching</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#working-with-multiple-files">Working with multiple files</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#other">Other</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../about/">About</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">SECS</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a> &raquo;</li>
+      <li>VI commands</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="basic-vi-commands">Basic Vi Commands</h1>
+<h2 id="modes-controls">Modes &amp; Controls</h2>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>vi filename</td>
+<td>Edit filename</td>
+</tr>
+<tr>
+<td>vi -r filename</td>
+<td>Edit last version of filename after crash</td>
+</tr>
+<tr>
+<td>vi + n filename</td>
+<td>Edit filename at end of file</td>
+</tr>
+<tr>
+<td>vi + filename</td>
+<td>Edit filename at end of file</td>
+</tr>
+<tr>
+<td>vi +/str filename</td>
+<td>Edit filename at first occurrence of str</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>:w</td>
+<td>Save</td>
+</tr>
+<tr>
+<td>:x or :wq</td>
+<td>Save &amp; Exit</td>
+</tr>
+<tr>
+<td>:q</td>
+<td>Exit if no changes made</td>
+</tr>
+<tr>
+<td>:q!</td>
+<td>Exit &amp; discard any changes</td>
+</tr>
+</tbody>
+</table>
+<h2 id="cursor-navigation">Cursor Navigation</h2>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>h or ←</td>
+<td>Cursor left</td>
+</tr>
+<tr>
+<td>j or ↓</td>
+<td>Cursor down</td>
+</tr>
+<tr>
+<td>k or ↑</td>
+<td>Cursor up</td>
+</tr>
+<tr>
+<td>l or →</td>
+<td>Cursor right</td>
+</tr>
+<tr>
+<td>w</td>
+<td>Next word</td>
+</tr>
+<tr>
+<td>W</td>
+<td>Next blank delimited word</td>
+</tr>
+<tr>
+<td>b</td>
+<td>Start of word</td>
+</tr>
+<tr>
+<td>B</td>
+<td>Start of blank delimited word</td>
+</tr>
+<tr>
+<td>e</td>
+<td>End of word</td>
+</tr>
+<tr>
+<td>W</td>
+<td>End of blank delimited word</td>
+</tr>
+<tr>
+<td>(</td>
+<td>Back a sentence</td>
+</tr>
+<tr>
+<td>)</td>
+<td>Forward a sentence</td>
+</tr>
+<tr>
+<td>{</td>
+<td>Back a paragraph</td>
+</tr>
+<tr>
+<td>}</td>
+<td>Forward a paragraph</td>
+</tr>
+<tr>
+<td>0</td>
+<td>Beginning of line</td>
+</tr>
+<tr>
+<td>$</td>
+<td>End of line</td>
+</tr>
+<tr>
+<td>1G</td>
+<td>Start of file</td>
+</tr>
+<tr>
+<td>G</td>
+<td>End of file</td>
+</tr>
+<tr>
+<td>:n</td>
+<td>nth line of file</td>
+</tr>
+<tr>
+<td>f&lt; char &gt;</td>
+<td>Forward to char</td>
+</tr>
+<tr>
+<td>F&lt; char &gt;</td>
+<td>Back to char</td>
+</tr>
+<tr>
+<td>H</td>
+<td>Top of screen</td>
+</tr>
+<tr>
+<td>M</td>
+<td>Middle of screen</td>
+</tr>
+<tr>
+<td>L</td>
+<td>Bottom of screen</td>
+</tr>
+<tr>
+<td>%</td>
+<td>Matching bracket</td>
+</tr>
+<tr>
+<td>gg</td>
+<td>Start of document</td>
+</tr>
+</tbody>
+</table>
+<h2 id="inserting-text">Inserting Text</h2>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>i</td>
+<td>Insert before cursor</td>
+</tr>
+<tr>
+<td>a</td>
+<td>Append after cursor</td>
+</tr>
+<tr>
+<td>I</td>
+<td>Insert before line</td>
+</tr>
+<tr>
+<td>A</td>
+<td>Append after line</td>
+</tr>
+<tr>
+<td>o</td>
+<td>Add new line after current line</td>
+</tr>
+<tr>
+<td>O</td>
+<td>Add new line before current line</td>
+</tr>
+<tr>
+<td>r</td>
+<td>Overwrite one character</td>
+</tr>
+<tr>
+<td>R</td>
+<td>Overwrite many characters</td>
+</tr>
+<tr>
+<td>:r file</td>
+<td>Reads file and inserts it after this line</td>
+</tr>
+<tr>
+<td>p</td>
+<td>Put after the position or line</td>
+</tr>
+<tr>
+<td>P</td>
+<td>Put before the position or line</td>
+</tr>
+<tr>
+<td>C</td>
+<td>Rewrite the whole line</td>
+</tr>
+</tbody>
+</table>
+<h2 id="marking-text-visual-mode">Marking Text (Visual Mode)</h2>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>v</td>
+<td>Start visual mode, mark lines, then do command (such as y-yank)</td>
+</tr>
+<tr>
+<td>V</td>
+<td>Start Likewise visual mode</td>
+</tr>
+<tr>
+<td>o</td>
+<td>Move to other end of marked area</td>
+</tr>
+<tr>
+<td>ctrl + v</td>
+<td>Start visual block mode</td>
+</tr>
+<tr>
+<td>O</td>
+<td>Move to Other corner of block</td>
+</tr>
+<tr>
+<td>aw</td>
+<td>Mark a word</td>
+</tr>
+<tr>
+<td>ab</td>
+<td>A () block (with braces)</td>
+</tr>
+<tr>
+<td>aB</td>
+<td>A {} block (with brackets)</td>
+</tr>
+<tr>
+<td>ib</td>
+<td>Inner () block</td>
+</tr>
+<tr>
+<td>iB</td>
+<td>Inner {} block</td>
+</tr>
+<tr>
+<td>esc</td>
+<td>Exit visual mode</td>
+</tr>
+</tbody>
+</table>
+<h2 id="visual-commands">Visual commands</h2>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>&gt;</td>
+<td>Shift right</td>
+</tr>
+<tr>
+<td>&lt;</td>
+<td>Shift left</td>
+</tr>
+<tr>
+<td>y</td>
+<td>Yank (copy) marked text</td>
+</tr>
+<tr>
+<td>d</td>
+<td>Delete marked text</td>
+</tr>
+<tr>
+<td>~</td>
+<td>Switch case</td>
+</tr>
+</tbody>
+</table>
+<h2 id="cut-and-paste">Cut and Paste</h2>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>yy</td>
+<td>yank (copy) a line</td>
+</tr>
+<tr>
+<td>2yy</td>
+<td>yank 2 lines</td>
+</tr>
+<tr>
+<td>yw</td>
+<td>yank word</td>
+</tr>
+<tr>
+<td>y$</td>
+<td>yank to end of line</td>
+</tr>
+<tr>
+<td>p</td>
+<td>put (paste) the clipboard after cursor</td>
+</tr>
+<tr>
+<td>P</td>
+<td>put (paste) before cursor</td>
+</tr>
+<tr>
+<td>dd</td>
+<td>delete (cut) a line</td>
+</tr>
+<tr>
+<td>dw</td>
+<td>delete (cut) the current word</td>
+</tr>
+<tr>
+<td>x</td>
+<td>delete (cut) current character</td>
+</tr>
+</tbody>
+</table>
+<h2 id="deleting-text">Deleting Text</h2>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>x</td>
+<td>Delete character to right of cursor</td>
+</tr>
+<tr>
+<td>X</td>
+<td>Delete character to left of cursor</td>
+</tr>
+<tr>
+<td>D</td>
+<td>Delete the rest of line</td>
+</tr>
+<tr>
+<td>dd or :d</td>
+<td>Delete current line</td>
+</tr>
+<tr>
+<td>ndw</td>
+<td>Deletes the next n words</td>
+</tr>
+<tr>
+<td>ndb</td>
+<td>Deletes the previous n words</td>
+</tr>
+<tr>
+<td>ndd</td>
+<td>Deletes n lines starting with current</td>
+</tr>
+<tr>
+<td>:x,yd</td>
+<td>Delete lines x through y</td>
+</tr>
+<tr>
+<td>:r &lt; file &gt;</td>
+<td>Reads file and inserts it after this line</td>
+</tr>
+<tr>
+<td>d{nav_cmd}</td>
+<td>Overwrite many characters</td>
+</tr>
+</tbody>
+</table>
+<h2 id="searching">Searching</h2>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>/string</td>
+<td>Search forward for string</td>
+</tr>
+<tr>
+<td>?string</td>
+<td>Search backwards for string</td>
+</tr>
+<tr>
+<td>n</td>
+<td>Go to next match</td>
+</tr>
+<tr>
+<td>N</td>
+<td>Go to previous match</td>
+</tr>
+<tr>
+<td>:set ic</td>
+<td>Ignore case while searching</td>
+</tr>
+<tr>
+<td>:set noic</td>
+<td>Case-sensitive searching</td>
+</tr>
+<tr>
+<td>:set nu</td>
+<td>Turn on line numbers</td>
+</tr>
+<tr>
+<td>:x,yg/str</td>
+<td>Search for str from line x to line y</td>
+</tr>
+<tr>
+<td>:g/str/cmd</td>
+<td>Run cmd on lines containing str</td>
+</tr>
+<tr>
+<td>*</td>
+<td>Search for next instance of current word</td>
+</tr>
+<tr>
+<td>#</td>
+<td>Search for last instance of current word</td>
+</tr>
+<tr>
+<td>:%s/old/new/g</td>
+<td>Replace all old with new throughout file</td>
+</tr>
+<tr>
+<td>:%s/old/new/gc</td>
+<td>Replace all old with new throughout file with confirmations</td>
+</tr>
+</tbody>
+</table>
+<h2 id="working-with-multiple-files">Working with multiple files</h2>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>:e filename</td>
+<td>Edit a file in a new buffer</td>
+</tr>
+<tr>
+<td>:bnext (or :bn)</td>
+<td>Go to next buffer</td>
+</tr>
+<tr>
+<td>:bprev (of :bp)</td>
+<td>Go to previous buffer</td>
+</tr>
+<tr>
+<td>:bd</td>
+<td>Delete a buffer (close a file)</td>
+</tr>
+<tr>
+<td>:sp filename</td>
+<td>Open a file in a new buffer and split window</td>
+</tr>
+<tr>
+<td>ctrl + ws</td>
+<td>Split windows</td>
+</tr>
+<tr>
+<td>ctrl + ww</td>
+<td>Switch between windows</td>
+</tr>
+<tr>
+<td>ctrl + wq</td>
+<td>Quit a window</td>
+</tr>
+<tr>
+<td>ctrl + wv</td>
+<td>Split windows vertically</td>
+</tr>
+</tbody>
+</table>
+<h2 id="other">Other</h2>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>u</td>
+<td>Undo last change</td>
+</tr>
+<tr>
+<td>J</td>
+<td>Join lines</td>
+</tr>
+<tr>
+<td>nJ</td>
+<td>Join next n lines</td>
+</tr>
+<tr>
+<td>.</td>
+<td>Repeat last command</td>
+</tr>
+<tr>
+<td>U</td>
+<td>Undo all changes to line</td>
+</tr>
+<tr>
+<td>ctrl + c</td>
+<td>Escape insert mode</td>
+</tr>
+</tbody>
+</table>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../basic-linux-commands/" class="btn btn-neutral float-left" title="Linux commands"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../about/" class="btn btn-neutral float-right" title="About">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../basic-linux-commands/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../about/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme_extra.js" defer></script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
